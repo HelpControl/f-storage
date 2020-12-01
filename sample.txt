@@ -1,0 +1,5 @@
+# sample file test
+sample
+foo
+bar
+end of file
