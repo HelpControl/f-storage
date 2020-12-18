@@ -31,7 +31,6 @@ public class ApiFStorage {
         return ResponseEntity.ok(item.orElseThrow(() -> new NotFoundException("File with uuid::" + uuid + " not found")));
     }
 
-//    @PostMapping(value = "/", consumes = {"text/plain"})
     @PostMapping("/")
     public String UUIDhandleFileUpload(@RequestParam MultipartFile file) {
         log.info("-> handleFileUpload");
@@ -44,11 +43,5 @@ public class ApiFStorage {
         log.info("<- handleFileUpload::id::{}::uuid::{}",item.getId(),item.getUuid());
         return item.getUuid().toString();
     }
-
-    //COPY-PASTE:: https://spring.io/guides/gs/uploading-files/
-    /*@ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<?> handleStorageFileNotFound(NotFoundException exc) {
-        return ResponseEntity.notFound().build();
-    }*/
 
 }
