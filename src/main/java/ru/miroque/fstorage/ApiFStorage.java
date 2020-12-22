@@ -1,3 +1,4 @@
+/*
 package ru.miroque.fstorage;
 
 import lombok.extern.slf4j.Slf4j;
@@ -33,20 +34,8 @@ public class ApiFStorage {
         log.info("<- getItemByUuid::{}", uuid);
         return ResponseEntity.ok(item.orElseThrow(() -> new NotFoundException("File with uuid::" + uuid + " not found")));
     }
-/*
-    @PostMapping("/")
-    public String UUIDhandleFileUpload(@RequestParam MultipartFile file) {
-        log.info("-> handleFileUpload");
-        File item = new File();
-        item.setMime(file.getContentType());
-        item.setName(file.getOriginalFilename());
-        item.setPinned(Boolean.FALSE);
-        item.setUuid(UUID.randomUUID());
-        item = rFile.saveAndFlush(item);
-        log.info("<- handleFileUpload::id::{}::uuid::{}",item.getId(),item.getUuid());
-        return item.getUuid().toString();
-    }*/
-//HINT: https://stackoverflow.com/questions/49457761/spring-webflux-415-with-multipartfile
+
+    //HINT: https://stackoverflow.com/questions/49457761/spring-webflux-415-with-multipartfile
     @PostMapping(value = "", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     Mono<String> requestBodyFlux(@RequestBody Flux<Part> parts) {
         return partFluxDescription(parts);
@@ -72,3 +61,4 @@ public class ApiFStorage {
     }
 
 }
+*/

@@ -1,16 +1,17 @@
 ###
-POST http://localhost:8080/api/f-storage/
+POST http://localhost:8080/api/file-storage/
 Content-Type: multipart/form-data; boundary=WebAppBoundary
+Content-Type: text/plain;charset=UTF-8
 
 --WebAppBoundary
-Content-Disposition: form-data; name="file"; filename="some"
+Content-Disposition: form-data; name="file"; filename="sample.txt";
 
 < sample.txt
 --WebAppBoundary--
 
 ###
 ### get existing
-GET http://localhost:8080/api/f-storage/00000000-0000-0000-0000-000000000000
+GET http://localhost:8080/api/file-storage/33830ee6-5ed7-4e17-9a03-a07c03f6630f
 
 ### get non existing - error
 GET http://localhost:8080/api/f-storage/00000000-0000-0000-0000-000000000001
