@@ -1,8 +1,7 @@
-package ru.miroque.fstorage;
+package ru.miroque.fstorage.classic.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +13,7 @@ import java.util.UUID;
 @Setter
 
 @Entity
-public class File {
+public class ResourceFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,10 +32,10 @@ public class File {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof File)) {
+        if (!(obj instanceof ResourceFile)) {
             return false; // null or other class
         }
-        File other = (File) obj;
+        ResourceFile other = (ResourceFile) obj;
 
         if (id != null) {
             return id.equals(other.id);

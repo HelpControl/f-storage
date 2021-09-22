@@ -1,4 +1,4 @@
-package ru.miroque.fstorage;
+package ru.miroque.fstorage.classic.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
