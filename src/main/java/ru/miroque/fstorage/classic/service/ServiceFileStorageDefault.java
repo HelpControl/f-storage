@@ -1,6 +1,7 @@
 package ru.miroque.fstorage.classic.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.miroque.fstorage.classic.domain.ResourceFile;
 import ru.miroque.fstorage.classic.dto.DtoFileStorageDefault;
@@ -10,6 +11,7 @@ import ru.miroque.fstorage.classic.repository.RepositoryResourceFile;
 import java.util.UUID;
 
 @RequiredArgsConstructor
+@Service
 public class ServiceFileStorageDefault implements ServiceFileStorage {
     private final RepositoryResourceFile repositoryResourceFile;
     @Override

@@ -26,7 +26,7 @@ public class ApiFileStorage {
     public ResponseEntity<ObjectNode> getItemByUuid(@PathVariable UUID uuid) throws NotFoundException {
         log.info("-> getItemByUuid::{}", uuid);
         DtoFileStorageDefault dto = serviceFileStorage.findByUuid(uuid);
-        objectNode.put("uuid", dto.getUuid());
+        objectNode.put("uuid", dto.getUuid().toString());
         log.info("<- getItemByUuid::{}", uuid);
         return new ResponseEntity<>(objectNode, HttpStatus.OK);
     }
@@ -35,7 +35,8 @@ public class ApiFileStorage {
     public ResponseEntity<ObjectNode> UUIDhandleFileUpload(@RequestParam MultipartFile file) {
         log.info("-> handleFileUpload");
         DtoFileStorageDefault dto = serviceFileStorage.save(file);
-        log.info("<- handleFileUpload uuid::{}",dto.getUuid());
+        objectNode.put("uuid", dto.getUuid().toString());
+        log.info("<- handleFileUpload uuid::{}", dto.getUuid());
         return new ResponseEntity<>(objectNode, HttpStatus.OK);
     }
 
