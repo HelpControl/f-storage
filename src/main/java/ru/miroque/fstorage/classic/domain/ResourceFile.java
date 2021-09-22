@@ -1,4 +1,4 @@
-package ru.miroque.fstorage;
+package ru.miroque.fstorage.classic.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.util.UUID;
 @Setter
 
 @Entity
-public class StoragedFile {
+public class ResourceFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,10 +32,10 @@ public class StoragedFile {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof StoragedFile)) {
+        if (!(obj instanceof ResourceFile)) {
             return false; // null or other class
         }
-        StoragedFile other = (StoragedFile) obj;
+        ResourceFile other = (ResourceFile) obj;
 
         if (id != null) {
             return id.equals(other.id);

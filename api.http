@@ -1,10 +1,10 @@
 ###
-POST http://localhost:8080/api/file-storage/
+POST http://localhost:8080/api/
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 Content-Type: text/plain;charset=UTF-8
 
 --WebAppBoundary
-Content-Disposition: form-data; name="file"; filename="sample.txt";
+Content-Disposition: form-data; name="file"; filename="sample1111.txt";
 
 < sample.txt
 --WebAppBoundary--

@@ -8,14 +8,14 @@
         <version>2.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ru.miroque</groupId>
-    <artifactId>f-storage</artifactId>
+    <groupId>ru.miroque.f-storage</groupId>
+    <artifactId>classic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>f-storage</name>
-    <description>Microservice for File Storage</description>
+    <name>f-storage-classic</name>
+    <description>Microservice for File Storage in classic way of MVC</description>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <testcontainers.version>1.15.0</testcontainers.version>
     </properties>
 
