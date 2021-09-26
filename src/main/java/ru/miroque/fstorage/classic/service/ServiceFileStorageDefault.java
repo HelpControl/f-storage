@@ -1,5 +1,6 @@
 package ru.miroque.fstorage.classic.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,21 +12,17 @@ import ru.miroque.fstorage.classic.repository.RepositoryResourceFile;
 import java.io.IOException;
 import java.util.UUID;
 
+@RequiredArgsConstructor
 @Service
 public class ServiceFileStorageDefault implements ServiceFileStorage {
     private final RepositoryResourceFile repositoryResourceFile;
-    private final ServiceFileIO serviceFileIO;
-
-    public ServiceFileStorageDefault(RepositoryResourceFile repositoryResourceFile, ServiceFileIO serviceFileIO) {
-        this.repositoryResourceFile = repositoryResourceFile;
-        this.serviceFileIO = serviceFileIO;
-    }
+    private final ServiceFileIo serviceFileIO;
 
     @Transactional
     @Override
     public DtoFileStorageDefault save(MultipartFile file) throws IOException {
         UUID nameUUID = UUID.randomUUID();
-        serviceFileIO.writeToTemporaryPlace(file, nameUUID.toString());
+        serviceFileIO.storeToTemporaryPlace(file, nameUUID.toString());
         ResourceFile item = new ResourceFile();
         item.setMime(file.getContentType());
         item.setName(file.getOriginalFilename());

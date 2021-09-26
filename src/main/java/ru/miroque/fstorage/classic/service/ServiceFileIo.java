@@ -4,6 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-public interface ServiceFileIO {
-    void writeToTemporaryPlace(MultipartFile file, String fileName) throws IOException;
+public interface ServiceFileIo {
+    void storeToTemporaryPlace(MultipartFile file, String fileName) throws IOException;
 }

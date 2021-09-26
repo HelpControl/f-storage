@@ -8,14 +8,14 @@ import java.io.File;
 import java.io.IOException;
 
 @Service
-public class ServiceFileIODefault implements ServiceFileIO {
+public class ServiceFileIoDefault implements ServiceFileIo {
 
     @Value("${file.storage.path}")
     private String fileTemporaryPath;
 
     @Override
-    public void writeToTemporaryPlace(MultipartFile file, String fileName) throws IOException {
-        File temporaryFile = new File(fileTemporaryPath+fileName);
+    public void storeToTemporaryPlace(MultipartFile file, String fileName) throws IOException {
+        File temporaryFile = new File(fileTemporaryPath + fileName);
         file.transferTo(temporaryFile);
     }
 }
