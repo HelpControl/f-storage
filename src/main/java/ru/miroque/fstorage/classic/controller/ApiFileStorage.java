@@ -12,6 +12,7 @@ import ru.miroque.fstorage.classic.dto.DtoFileStorageDefault;
 import ru.miroque.fstorage.classic.exception.NotFoundException;
 import ru.miroque.fstorage.classic.service.ServiceFileStorage;
 
+import java.io.IOException;
 import java.util.UUID;
 
 @Slf4j
@@ -32,7 +33,7 @@ public class ApiFileStorage {
     }
 
     @PostMapping("/")
-    public ResponseEntity<ObjectNode> UUIDhandleFileUpload(@RequestParam MultipartFile file) {
+    public ResponseEntity<ObjectNode> uuidHandleFileUpload(@RequestParam MultipartFile file) throws IOException {
         log.info("-> handleFileUpload");
         DtoFileStorageDefault dto = serviceFileStorage.save(file);
         objectNode.put("uuid", dto.getUuid().toString());
