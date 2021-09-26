@@ -1,4 +1,4 @@
-![example workflow] (https://github.com/HelpControl/f-storage/actions/workflows/main.yml/badge.svg)
+![example workflow](https://github.com/HelpControl/f-storage/actions/workflows/main.yml/badge.svg)
 
 # F-Storage
 
