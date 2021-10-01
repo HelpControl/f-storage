@@ -10,6 +10,7 @@ import ru.miroque.fstorage.classic.exception.NotFoundException;
 import ru.miroque.fstorage.classic.repository.RepositoryResourceFile;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -22,12 +23,14 @@ public class ServiceFileStorageDefault implements ServiceFileStorage {
     @Override
     public DtoFileStorageDefault save(MultipartFile file) throws IOException {
         UUID nameUUID = UUID.randomUUID();
-        serviceFileIO.storeToTemporaryPlace(file, nameUUID.toString());
+
         ResourceFile item = new ResourceFile();
         item.setMime(file.getContentType());
         item.setName(file.getOriginalFilename());
         item.setPinned(Boolean.FALSE);
         item.setUuid(nameUUID);
+        item.setCreated(LocalDateTime.now());
+        item.setStorePath(serviceFileIO.storeToTemporaryPlace(file, nameUUID.toString()));
         item = repositoryResourceFile.save(item);
         return new DtoFileStorageDefault(item);
     }
