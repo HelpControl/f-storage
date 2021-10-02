@@ -15,7 +15,7 @@ import java.nio.file.Files;
 @Service
 public class ServiceFileIoDefault implements ServiceFileIo {
 
-    @Value("${file.storage.path}")
+    @Value("${file.storage.tmp}")
     private String fileTemporaryPath;
 
     @Autowired
