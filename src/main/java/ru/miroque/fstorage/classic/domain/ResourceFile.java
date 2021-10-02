@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -21,6 +22,8 @@ public class ResourceFile {
     private String name;
     private String mime;
     private Boolean pinned;
+    private LocalDateTime created;
+    private String storePath;
 
     @Override
     public int hashCode() {
