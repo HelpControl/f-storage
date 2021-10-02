@@ -29,7 +29,5 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
           cache: 'maven'
-      - name: Maven Verify
+      - name: Maven Build without Tests
         run: mvn -B clean verify -DskipTests
-      - name: Maven Spotbugs check
-        run: mvn -B -DskipTests spotbugs:check
