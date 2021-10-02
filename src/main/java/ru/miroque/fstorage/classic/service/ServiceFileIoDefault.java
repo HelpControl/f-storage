@@ -25,10 +25,8 @@ public class ServiceFileIoDefault implements ServiceFileIo {
     public String storeToTemporaryPlace(MultipartFile file, String fileName) throws IOException {
         log.debug(" _ fileTemporaryPath::{}", fileTemporaryPath);
         log.debug(" _ fileName::{}", fileName);
-        log.debug(" _ classpath::{}", context.getRealPath("resources/uploads"));
         File temporaryFile = new File(fileTemporaryPath + fileName);
         Files.write(temporaryFile.toPath(), file.getBytes());
-//        file.transferTo(temporaryFile);
         return temporaryFile.getPath();
     }
 }

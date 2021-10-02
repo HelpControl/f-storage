@@ -3,10 +3,7 @@ package ru.miroque.fstorage.classic.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -16,7 +13,8 @@ import java.util.UUID;
 @Entity
 public class ResourceFile {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_resource_file")
+    @SequenceGenerator(name = "seq_resource_file", sequenceName = "seq_resource_file")
     private Long id;
     private UUID uuid;
     private String name;
